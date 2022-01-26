@@ -8,16 +8,11 @@ To sign up students will use their AAiT id, email address and user name. The adm
 
 Features
 •	Student sign up page
-•	Admin sign up page
 •	Student login page
-•	Admin login page
 •	Log out functionality
 •	Admin authorization
-•	Student authorization 
-•	Upload a file (business feature 1)
-•	Document authentication 
-•	Asking a question (business feature 2)
-•	Answering a question (business feature 3)
+•	Asking a question (business feature 1)
+•	Answering a question (business feature 2)
 
 
 Group members
