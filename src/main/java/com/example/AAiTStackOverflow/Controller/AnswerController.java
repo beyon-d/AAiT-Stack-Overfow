@@ -119,6 +119,4 @@ public class AnswerController {
 
         return "answerUpdateSuccess";
     }
-
-
 }
