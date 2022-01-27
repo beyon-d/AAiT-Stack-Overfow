@@ -120,5 +120,29 @@ public class QuestionController {
         model.addAttribute("question", question);
         return "questionUpdate";
     }
+    
+    @PostMapping("/questionUpdate/{id}")
+    public String updateQuestion(@PathVariable Long id, Authentication authentication, Model model,
+                                 @Valid @ModelAttribute("question") Question question,Errors errors) {
+        if (errors.hasErrors()) {
+            return "questionUpdate";
+        }
+        UserDetails userPrincipal = (UserDetails)authentication.getPrincipal();
+        String userEmail = userPrincipal.getUsername();
+        Account author = userRepo.findByEmail(userEmail);
+
+        model.addAttribute("author", author);
+
+        Question oldQuestion = questionRepository.findById(id).get();
+
+        oldQuestion.setId(id);
+        oldQuestion.setTitle(question.getTitle());
+        oldQuestion.setDescription(question.getDescription());
+        oldQuestion.setAuthor(author);
+        questionRepository.save(oldQuestion);
+
+        return "questionUpdateSuccess";
+    }
+
 
 }
