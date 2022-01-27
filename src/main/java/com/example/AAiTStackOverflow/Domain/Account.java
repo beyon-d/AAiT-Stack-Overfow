@@ -55,7 +55,10 @@ public class Account {
             CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Question> questions;
 
- 
+    @OneToMany(mappedBy = "author", cascade = {
+            CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<Answer> answers;
 
     public static enum Role{
         USER, ADMIN;
